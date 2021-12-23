@@ -1,335 +1,141 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>ListAshop</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="vendors/linericon/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-    <link rel="stylesheet" href="vendors/animate-css/animate.css">
-    <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
-    <!-- main css -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.min.css" rel="stylesheet">
+    <title>Каталог</title>
 </head>
 <body>
+<div style="display: none">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-arrow-left" viewBox="0 0 8 14"><path d="M6 12H4v-2h2v2zm-2-2H2V8h2v2zM2 8H0V6h2v2zm2-2H2V4h2v2zm2-2H4V2h2v2zm2-2H6V0h2v2zm0 12H6v-2h2v2z"></path></symbol><symbol id="icon-arrow-right" viewBox="0 0 8 14"><path d="M2 2h2v2H2V2zm2 2h2v2H4V4zm2 2h2v2H6V6zM4 8h2v2H4V8zm-2 2h2v2H2v-2zm-2 2h2v2H0v-2zM0 0h2v2H0V0z"></path></symbol><symbol id="icon-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="#000" stroke-linecap="round"></path></symbol><symbol id="icon-cart" viewBox="0 0 29 21"><path d="M12 18v3h3v-3h-3zm9 0v3h3v-3h-3zM8.923 4.712V2.48h-2.23V.25H0v2.23h4.462v2.232h2.23v4.461h2.231v-2.23h4.462v2.23H8.923v4.462h2.23v-2.231h2.232v2.23h-2.231v2.231h13.384v-2.23h-2.23v-2.231h2.23v2.23h2.231v-4.46h-4.461V6.941h4.461v2.231H29v-4.46H8.923zm11.154 8.923h-4.462v-2.231h4.462v2.23zm0-4.462h-4.462v-2.23h4.462v2.23z"></path></symbol><symbol id="icon-close" viewBox="0 0 18 18"><path d="M17 1L1 17m16 0L1 1" stroke="#9D9D9D" stroke-width=".8"></path></symbol><symbol id="icon-facebook" viewBox="0 0 17 17"><path d="M15.454 0H1.545C.692 0 0 .692 0 1.545v13.91C0 16.308.692 17 1.545 17h7.728v-6.954H6.955V7.727h2.318V6.482c0-2.356 1.148-3.391 3.107-3.391.938 0 1.434.07 1.669.101V5.41h-1.336c-.831 0-1.122.439-1.122 1.328v.99h2.437l-.33 2.319H11.59V17h3.864c.853 0 1.545-.692 1.545-1.546V1.545A1.544 1.544 0 0015.454 0z"></path></symbol><symbol id="icon-insta" viewBox="0 0 17 17"><path d="M4.957 0A4.964 4.964 0 000 4.96v7.083A4.964 4.964 0 004.96 17h7.083A4.964 4.964 0 0017 12.04V4.957A4.964 4.964 0 0012.04 0H4.957zm8.501 2.833a.709.709 0 110 1.418.709.709 0 010-1.418zM8.5 4.25a4.254 4.254 0 014.25 4.25 4.254 4.254 0 01-4.25 4.25A4.254 4.254 0 014.25 8.5 4.254 4.254 0 018.5 4.25zm0 1.417a2.833 2.833 0 100 5.666 2.833 2.833 0 000-5.666z"></path></symbol><symbol id="icon-minus" viewBox="0 0 9 3"><path d="M8.287 2.574H.7V.765h7.587v1.809z"></path></symbol><symbol id="icon-plus" viewBox="0 0 12 12"><path d="M6.524 11.086h-1.43v-4.51H.54V5.102h4.554V.57h1.43v4.532h4.554v1.474H6.524v4.51z"></path></symbol><symbol id="icon-search" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M13.224 3.097A7.16 7.16 0 113.097 13.224 7.16 7.16 0 0113.224 3.097zm.728 10.813a8.16 8.16 0 10-.042.042l-.7.7 5.049 5.05a1.02 1.02 0 101.442-1.443l-5.049-5.05-.7.7z"></path></symbol><symbol id="icon-telegram" viewBox="0 0 19 17"><path d="M.393 7.855l4.324 1.614 1.674 5.383a.509.509 0 00.809.243l2.41-1.965a.72.72 0 01.877-.024l4.348 3.156a.51.51 0 00.798-.308L18.818.634a.51.51 0 00-.682-.58L.388 6.902a.51.51 0 00.005.954zm5.729.755l8.451-5.206c.152-.093.308.112.178.233l-6.975 6.484a1.446 1.446 0 00-.448.865l-.238 1.76c-.031.236-.362.26-.426.032L5.75 9.567a.851.851 0 01.372-.957z"></path></symbol><symbol id="icon-twitter" viewBox="0 0 18 15"><path d="M17.062 2.007a7.009 7.009 0 01-2.01.55A3.51 3.51 0 0016.59.62a6.989 6.989 0 01-2.222.85 3.5 3.5 0 00-5.965 3.194 9.94 9.94 0 01-7.215-3.659c-.3.519-.473 1.12-.473 1.76a3.5 3.5 0 001.557 2.914 3.492 3.492 0 01-1.586-.438v.045a3.502 3.502 0 002.808 3.432 3.526 3.526 0 01-1.58.06 3.502 3.502 0 003.27 2.43A7.025 7.025 0 010 12.659a9.9 9.9 0 005.365 1.574c6.44 0 9.96-5.334 9.96-9.96 0-.15-.004-.302-.01-.452a7.116 7.116 0 001.745-1.81l.002-.003z"></path></symbol><symbol id="icon-vk" viewBox="0 0 20 11"><path clip-rule="evenodd" d="M19.541.745c.14-.43 0-.745-.662-.745h-2.188c-.556 0-.812.273-.951.573 0 0-1.113 2.512-2.69 4.143-.51.473-.741.623-1.02.623-.138 0-.347-.15-.347-.58V.745c0-.515-.154-.745-.618-.745H7.627c-.348 0-.557.24-.557.466 0 .488.788.6.87 1.975v2.984c0 .654-.128.773-.406.773-.742 0-2.546-2.523-3.617-5.41C3.707.227 3.497 0 2.938 0H.75C.125 0 0 .273 0 .573c0 .537.742 3.199 3.454 6.72C5.262 9.696 7.809 11 10.127 11c1.391 0 1.563-.29 1.563-.788V8.395c0-.58.132-.695.572-.695.325 0 .881.15 2.18 1.31 1.483 1.374 1.727 1.99 2.562 1.99h2.188c.625 0 .938-.29.757-.86-.197-.57-.905-1.396-1.845-2.375-.51-.558-1.275-1.16-1.507-1.46-.324-.387-.232-.558 0-.902 0 0 2.666-3.477 2.944-4.658z"></path></symbol></svg>
+</div>
 
-<!--================Header Menu Area =================-->
-<header class="header_area">
-    <div class="top_menu row m0">
-        <div class="container">
-            <div class="float-left">
-                <a href="mailto:support@colorlib.com">support@colorlib.com</a>
-                <a href="#">Welcome to Catalouge</a>
-            </div>
-            <div class="float-right">
-                <ul class="header_social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="main_menu">
-        <nav class="navbar navbar-expand-lg navbar-light main_box">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item submenu dropdown active">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a>
-                                <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a>
-                                <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
-                                <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                                <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="login.html">Login</a>
-                                <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a>
-                                <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="#" class="cart"><i class="lnr lnr lnr-cart"></i></a></li>
-                        <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<header class="header">
+    <div class="header__wrapper container">
+        <span class="header__info">Каталог</span>
+
+        <a class="header__logo" href="#">
+            <img src="img/svg/logo-tech.svg" alt="Логотип интернет магазина Технозавррр" width="190" height="33">
+        </a>
+
+        <a class="header__tel" href="tel:8 800 600 90 09">
+            8 800 600 90 09
+        </a>
+
+        <a class="header__cart" href="cart.html" aria-label="Корзина с товарами">
+            <svg width="30" height="21" fill="currentColor">
+                <use xlink:href="#icon-cart"></use>
+            </svg>
+            <span class="header__count" aria-label="Количество товаров">3</span>
+        </a>
     </div>
 </header>
-<!--================Header Menu Area =================-->
 
-<!--================Home Banner Area =================-->
-<section class="banner_area">
-    <div class="banner_inner d-flex align-items-center">
-        <div class="container">
-            <div class="banner_content text-center">
-                <h2>Shop Category Page</h2>
-                <div class="page_link">
-                    <a href="index.html">Home</a>
-                    <a href="category.html">Category</a>
-                    <a href="category.html">Women Fashion</a>
-                </div>
-            </div>
-        </div>
+<main class="content container">
+    <div class="content__top content__top--catalog">
+        <h1 class="content__title">
+            Каталог
+        </h1>
+        <span class="content__info">
+        152 товара
+      </span>
     </div>
-</section>
-<!--================End Home Banner Area =================-->
+    <div id="app"></div>
 
-<!--================Category Product Area =================-->
-<div id="app"></div>
-<!--================End Category Product Area =================-->
+</main>
 
-<!--================Most Product Area =================-->
-<section class="most_product_area most_p_withoutbox">
-    <div class="container">
-        <div class="main_title">
-            <h2>Most Searched Products</h2>
-            <p>Who are in extremely love with eco friendly system.</p>
-        </div>
-        <div class="row most_product_inner">
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-1.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-2.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-3.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-4.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-5.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-6.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-7.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-8.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-9.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="most_p_list">
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-10.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-11.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="d-flex">
-                            <img src="img/product/most-product/m-product-12.jpg" alt="">
-                        </div>
-                        <div class="media-body">
-                            <a href="#"><h4>Black lace Heels</h4></a>
-                            <h3>$189.00</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================End Most Product Area =================-->
+<footer class="footer">
+    <div class="footer__wrapper container">
+        <ul class="footer__links">
+            <li>
+                <a class="footer__link" href="#">
+                    Каталог
+                </a>
+            </li>
+            <li>
+                <a class="footer__link" href="tel:88006009009">
+                    8 800 600 90 09
+                </a>
+            </li>
+            <li>
+                <a class="footer__link" href="mailto:hi@technozavrrr.com">
+                    hi@technozavrrr.com
+                </a>
+            </li>
+            <li>
+                <a class="footer__link" href="#">
+                    Распродажа
+                </a>
+            </li>
+            <li>
+                <a class="footer__link footer__link--medium" href="#">
+                    Заказать звонок
+                </a>
+            </li>
+        </ul>
 
-<!--================ start footer Area  =================-->
-<footer class="footer-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6 class="footer_title">About Us</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6 class="footer_title">Newsletter</h6>
-                    <p>Stay updated with our latest trends</p>
-                    <div id="mc_embed_signup">
-                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                            <div class="input-group d-flex flex-row">
-                                <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
-                            </div>
-                            <div class="mt-10 info"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget instafeed">
-                    <h6 class="footer_title">Instagram Feed</h6>
-                    <ul class="list instafeed d-flex flex-wrap">
-                        <li><img src="img/instagram/Image-01.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-02.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-03.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-04.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-05.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-06.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-07.jpg" alt=""></li>
-                        <li><img src="img/instagram/Image-08.jpg" alt=""></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6 col-sm-6">
-                <div class="single-footer-widget f_social_wd">
-                    <h6 class="footer_title">Follow Us</h6>
-                    <p>Let us be social</p>
-                    <div class="f_social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row footer-bottom d-flex justify-content-between align-items-center">
-            <p class="col-lg-12 footer-text text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        </div>
+        <ul class="footer__social social">
+            <li class="social__item">
+                <a class="social__link" href="#" aria-label="Вконтакте">
+                    <svg width="20" height="11" fill="currentColor">
+                        <use xlink:href="#icon-vk"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="#" aria-label="Инстаграм">
+                    <svg width="17" height="17" fill="currentColor">
+                        <use xlink:href="#icon-insta"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="#" aria-label="Facebook">
+                    <svg width="17" height="17" fill="currentColor">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="#" aria-label="Twitter">
+                    <svg width="17" height="14" fill="currentColor">
+                        <use xlink:href="#icon-twitter"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="#" aria-label="Telegram">
+                    <svg width="19" height="17" fill="currentColor">
+                        <use xlink:href="#icon-telegram"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="footer__desc">
+            Все права на&nbsp;материалы, находящиеся на&nbsp;сайте, охраняются в&nbsp;соответствии  с&nbsp;законодательством&nbsp;РФ,
+            в&nbsp;том числе об&nbsp;авторском праве и&nbsp;смежных правах.
+        </p>
+
+        <ul class="footer__data">
+            <li>
+                <a class="footer__link" href="#" target="_blank" rel="noopener" type="application/pdf">
+                    Политика конфиденциальности
+                </a>
+            </li>
+            <li>
+                <a class="footer__link" href="#" target="_blank" rel="noopener" type="application/pdf">
+                    Публичная оферта
+                </a>
+            </li>
+        </ul>
+
+        <span class="footer__copyright">
+        © 2020 Технозавррр
+      </span>
     </div>
 </footer>
-<!--================ End footer Area  =================-->
-
-
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/stellar.js"></script>
-<script src="vendors/lightbox/simpleLightbox.min.js"></script>
-<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-<script src="vendors/isotope/isotope-min.js"></script>
-<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/mail-script.js"></script>
-<script src="vendors/jquery-ui/jquery-ui.js"></script>
-<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendors/counter-up/jquery.counterup.js"></script>
-<script src="js/theme.js"></script>
 </body>
 </html>

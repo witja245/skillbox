@@ -1,7 +1,5 @@
 <template>
-
   <ProductItem :products="products"/>
-
 </template>
 <script>
 import ProductItem from './ProductItem.vue';

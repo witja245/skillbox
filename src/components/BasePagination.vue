@@ -1,22 +1,31 @@
 <template>
-  <div class="right_page ml-auto">
-    <nav class="cat_page" aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">
-          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-        </a></li>
-        <li class="page-item " :class="{'active': pageNumber === page }"
-            v-for="pageNumber in pages" :key="pageNumber">
-          <a class="page-link" href="#" @click.prevent="paginate(pageNumber)">
-            {{ pageNumber }}
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        </a></li>
-      </ul>
-    </nav>
-  </div>
+  <ul class="catalog__pagination pagination">
+    <li class="pagination__item ">
+      <a class="pagination__link pagination__link--arrow pagination__link--disabled"
+         aria-label="Предыдущая страница">
+        <svg width="8" height="14" fill="currentColor">
+          <use xlink:href="#icon-arrow-left"></use>
+        </svg>
+      </a>
+    </li>
+    <li class="pagination__item"
+        v-for="pageNumber in pages"
+        :key="pageNumber">
+      <a class="pagination__link"
+         :class="{'pagination__link--current': pageNumber === page }"
+         @click.prevent="paginate(pageNumber)"
+      >
+        {{ pageNumber }}
+      </a>
+    </li>
+    <li class="pagination__item">
+      <a class="pagination__link pagination__link--arrow" href="#" aria-label="Следующая страница">
+        <svg width="8" height="14" fill="currentColor">
+          <use xlink:href="#icon-arrow-right"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
 </template>
 <script>
 export default {
